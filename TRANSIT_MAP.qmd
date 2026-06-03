@@ -1,0 +1,108 @@
+---
+title: "Mapping Transit Fragmentation Across the US"
+subtitle: "Interactive Visualization of Governance Friction (Top 50 Cities)"
+author: "Gemini CLI Research Assistant"
+date: "2026-05-29"
+format:
+  html:
+    toc: false
+    code-fold: true
+    self-contained: true
+---
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(leaflet)
+library(htmltools)
+
+# 1. Load the Fragmentation Results
+results_path <- "transit_fragmentation_results.csv"
+if (!file.exists(results_path)) {
+  stop("Fragmentation results not found. Please run the analysis script first.")
+}
+df <- read_csv(results_path)
+
+# 2. Load the Census Gazetteer for Urban Area Centroids
+gaz_path <- "data/2020_Gaz_ua_national.txt"
+if (file.exists(gaz_path)) {
+  df_gaz <- read_tsv(gaz_path) %>%
+    select(GEOID, Lat = INTPTLAT, Lon = INTPTLONG) %>%
+    mutate(GEOID = str_pad(as.character(GEOID), 5, pad = "0"))
+  
+  # Join results with coordinates
+  map_df <- df %>%
+    inner_join(df_gaz, by = c("Urbanized Area Code" = "GEOID"))
+} else {
+  stop("Gazetteer not found. Ensure 'data/2020_Gaz_ua_national.txt' exists.")
+}
+
+# 3. Filter for Top 50 by Ridership
+map_df_top50 <- map_df %>%
+  arrange(desc(Total_UPT)) %>%
+  head(50)
+
+# 4. Create Visualization
+# Color palette
+pal <- colorNumeric(
+  palette = "YlOrRd",
+  domain = map_df_top50$Fragmentation_Index
+)
+
+# Custom Radius function to make differences visible
+# We use a linear scale on the log of trips to exaggerate the difference 
+# between Tier 1 (NYC) and Tier 2 (Chicago/SF) vs Tier 3 (Mid-size)
+get_radius <- function(upt) {
+  # Range of log10(trips) for top 50 is roughly 7.5 to 9.9
+  # Map this range to 5 to 40 pixels
+  scales::rescale(log10(upt), to = c(5, 40))
+}
+
+leaflet(map_df_top50) %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addCircleMarkers(
+    ~Lon, ~Lat,
+    radius = ~get_radius(Total_UPT),
+    color = "black", # Outline
+    weight = 1,
+    fillColor = ~pal(Fragmentation_Index),
+    fillOpacity = 0.8,
+    popup = ~paste0(
+      "<b>", `Urbanized Area Name`, "</b><br/>",
+      "Rank by Ridership: ", row_number(desc(Total_UPT)), "<br/>",
+      "Agencies: ", Agency_Count, "<br/>",
+      "Fragmentation Index: ", round(Fragmentation_Index, 2), "<br/>",
+      "Total Annual Trips: ", format(Total_UPT, big.mark = ",")
+    )
+  ) %>%
+  addLegend(
+    "bottomright", pal = pal, values = ~Fragmentation_Index,
+    title = "Fragmentation Index",
+    opacity = 1
+  ) %>%
+  setView(lng = -98.5795, lat = 39.8283, zoom = 4)
+```
+
+## Summary of National Fragmentation (Top 50)
+
+This interactive map focuses on the **Top 50 U.S. Urbanized Areas by ridership**. By limiting the scope, we can more clearly see the relationship between size and governance friction in major metropolitan areas.
+
+*   **Marker Size** is scaled to the logarithm of ridership, with New York City as the maximum reference point.
+*   **Marker Color** represents the **Transit Fragmentation Index (TFI)**.
+*   **Observations:** Regions with multiple competing heavy-rail or regional rail systems (like the Bay Area) often show higher fragmentation scores than single-provider systems.
+
+### Top 10 Cities in this Dataset
+
+```{r}
+#| label: top-table
+map_df_top50 %>%
+  arrange(desc(Total_UPT)) %>%
+  head(10) %>%
+  select(`Urbanized Area Name`, Agency_Count, Fragmentation_Index, Total_UPT) %>%
+  mutate(Total_UPT = format(Total_UPT, big.mark = ","),
+         Fragmentation_Index = round(Fragmentation_Index, 2)) %>%
+  knitr::kable()
+```

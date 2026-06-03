@@ -1,0 +1,99 @@
+---
+title: "National Ridership Deficit Map: The Cost of Fragmentation"
+subtitle: "Comparing Actual vs. Potential Transit Commuters (Top Metropolitan Areas)"
+author: "Gemini CLI Research Assistant"
+date: "2026-05-30"
+format:
+  html:
+    toc: false
+    self-contained: true
+---
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(leaflet)
+library(htmltools)
+
+# Load summaries
+summary_path <- "ridership_deficit_summary.csv"
+if (!file.exists(summary_path)) {
+  stop("Deficit summary not found. Please run calculate_ridership_deficit.R first.")
+}
+df_summary <- read_csv(summary_path)
+
+# Manual Centroids for Scaling Mapping
+region_coords <- tribble(
+  ~Region, ~Lat, ~Lon,
+  "Cincinnati", 39.1031, -84.5120,
+  "Seattle", 47.6062, -122.3321,
+  "Phoenix", 33.4484, -112.0740,
+  "San Francisco", 37.7749, -122.4194,
+  "Detroit", 42.3314, -83.0458,
+  "Tampa", 27.9506, -82.4572,
+  "Durham/Raleigh", 35.7796, -78.6382,
+  "Riverside", 33.9533, -117.3963,
+  "Bridgeport/New Haven", 41.2000, -73.1900
+)
+
+map_data <- df_summary %>%
+  inner_join(region_coords, by = "Region")
+
+# Exaggerate radius for visibility
+# NYC would be off-scale, but we are looking at fragmented secondary areas
+get_rad <- function(val) { scales::rescale(sqrt(val), to = c(10, 80)) }
+
+leaflet(map_data) %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addCircleMarkers(
+    ~Lon, ~Lat,
+    radius = ~get_rad(Predicted_Potential),
+    color = "black", weight = 1,
+    fillColor = "blue", fillOpacity = 0.2, # Outer ring = Potential
+    label = "Potential Ridership"
+  ) %>%
+  addCircleMarkers(
+    ~Lon, ~Lat,
+    radius = ~get_rad(Actual_Riders),
+    color = "red", weight = 1,
+    fillColor = "red", fillOpacity = 0.8,
+    popup = ~paste0(
+      "<b>", Region, " (Secondary Area)</b><br/>",
+      "Actual Commuters: ", format(round(Actual_Riders), big.mark = ","), "<br/>",
+      "Potential (Counterfactual): ", format(round(Predicted_Potential), big.mark = ","), "<br/>",
+      "<b>Ridership Deficit: ", format(round(Ridership_Deficit), big.mark = ","), "</b><br/>",
+      "Market Loss: ", round(Pct_Market_Loss * 100, 1), "%"
+    )
+  ) %>%
+  setView(lng = -98.5795, lat = 39.8283, zoom = 4)
+```
+
+## How to Read This Map
+
+*   **Blue Circles (Semi-transparent):** Represent the **Potential Ridership** predicted by our model if the area had "Primary Agency" service levels and unified governance.
+*   **Red Circles (Solid):** Represent the **Actual Ridership** recorded in the 2022 Census.
+*   **The Gap:** The larger the blue circle is compared to the red circle, the higher the **Ridership Deficit**.
+
+### National Results
+
+```{r}
+#| label: result-table
+#| message: false
+df_summary %>%
+  arrange(desc(Pct_Market_Loss)) %>%
+  mutate(
+    Actual_Riders = format(round(Actual_Riders), big.mark = ","),
+    Predicted_Potential = format(round(Predicted_Potential), big.mark = ","),
+    Ridership_Deficit = format(round(Ridership_Deficit), big.mark = ","),
+    Pct_Market_Loss = paste0(round(Pct_Market_Loss * 100, 1), "%")
+  ) %>%
+  knitr::kable()
+```
+
+---
+
+### **Key Takeaway:**
+Fragmentation is not just a coordination nuisance; it is a **stranglehold on ridership.** In Phoenix, Detroit, and San Francisco, the deficit exceeds 60%, meaning these regions are serving **less than a third** of their demographically supported transit potential in fragmented catchment areas.

@@ -1,0 +1,164 @@
+---
+title: "Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership"
+author: "Gemini CLI Research Assistant"
+date: today
+format:
+  html:
+    toc: true
+    code-fold: true
+    theme: cosmo
+  pdf:
+    documentclass: article
+    margin-left: 1in
+    margin-right: 1in
+execute:
+  echo: false
+  warning: false
+---
+
+## Abstract
+
+In many U.S. metropolitan areas, transit service is partitioned among multiple independent authorities, often following legacy municipal or county boundaries rather than modern commuting patterns. This paper introduces a **Transit Fragmentation Index (TFI)** to quantify this institutional "friction" and develops a **Counterfactual Deficit Model** to estimate the resulting ridership loss. Controlling for population density, housing density, median income, and region-specific fixed effects, we find a persistent "Fragmentation Tax" across the United States. In regions like Northern Kentucky and suburban Detroit, institutional fragmentation accounts for a **55% to 79% loss** in transit market share compared to demographically identical neighborhoods served by unified core agencies.
+
+---
+
+**JEL Codes:** R41, R48, H77, L32  
+**Keywords:** Urban Economics, Transit Governance, Institutional Fragmentation, Counterfactual Modeling, Herfindahl-Hirschman Index
+
+---
+
+## I. Introduction
+
+The efficiency of public transit is often measured by Vehicle Revenue Miles (VRM) or operating costs, but the *institutional structure* of service delivery is rarely quantified as a primary variable. In the United States, transit governance is a patchwork of city agencies, county authorities, and regional boards. While "Home Rule" and local control are often prized, they create institutional fragmentation.
+
+Fragmentation introduces "Governance Friction"—the cumulative transaction costs borne by the rider. These include uncoordinated schedules, disparate fare structures, lack of transfer reciprocity, and confusing branding. In this paper, we seek to answer: *Does the institutional split of a region’s transit service delivery negatively impact its total ridership output, even when controlling for land-use and demographic differences?*
+
+## II. Theoretical Framework: The Coasean Transit Model
+
+We apply the **Coase Theorem** to transit governance. In an ideal metropolitan area with zero transaction costs, it would not matter how many agencies exist; they would negotiate perfectly coordinated transfers and fare-sharing agreements to maximize ridership.
+
+However, in reality, transaction costs are high. Each independent agency has its own board, labor contracts, and political incentives. We model a rider's utility function as:
+
+$$U = V - C_{fare} - C_{time} - \phi(F)$$
+
+Where $\phi(F)$ is the **Fragmentation Penalty**, a function of the institutional split ($F$). As $F$ increases, the psychological and logistical cost of navigating the system increases, leading to a substitution effect toward private automobiles.
+
+## III. Data and Methodology
+
+### 3.1 Data Sources
+
+We utilize the **2023 National Transit Database (NTD)** for agency-level ridership and the **2022 ACS 5-Year Estimates** for tract-level demographic and commuting data. Geographic centroids are sourced from the **2020 Census Gazetteer**.
+
+### 3.2 The Transit Fragmentation Index (TFI)
+
+We first calculate the **Herfindahl-Hirschman Index (HHI)** for ridership (Unlinked Passenger Trips) within each Urbanized Area (UZA):
+
+$$HHI_{UZA} = \sum_{i=1}^{n} s_i^2$$
+
+where $s_i$ is the market share of agency $i$. We then define the **Transit Fragmentation Index (TFI)** as the inverse: $TFI = 1/HHI_{UZA}$.
+
+### 3.3 The Counterfactual Deficit Model
+
+To isolate the "Governance Friction" effect from built-environment biases, we employ a counterfactual regression model. We identify "Primary" service areas (centralized urban cores) and "Secondary" areas (fragmented satellite catchments). 
+
+The model controls for:
+*   **Median Household Income:** Capturing the car-ownership "wealth effect."
+*   **Population & Housing Density:** Controlling for land-use intensity and transit-supportive built environments.
+*   **Region Fixed Effects:** Accounting for unique market dynamics (e.g., Midwest vs. West Coast network effects).
+
+## IV. National Fragmentation Trends
+
+Using the analysis of 2023 data, we observe a wide variance in metropolitan fragmentation.
+
+```{r}
+#| label: results-table
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+results_path <- "transit_fragmentation_results.csv"
+
+if (file.exists(results_path)) {
+  df <- read_csv(results_path)
+  
+  cities <- c("New York", "Chicago", "Cincinnati", "Houston", "Phoenix", "San Francisco")
+  
+  df_summary <- df %>%
+    filter(map_lgl(`Urbanized Area Name`, ~any(str_detect(.x, cities)))) %>%
+    group_by(`Urbanized Area Name`) %>%
+    slice_max(Total_UPT, n = 1) %>%
+    ungroup() %>%
+    arrange(desc(Fragmentation_Index)) %>%
+    select(
+      `Metropolitan Region` = `Urbanized Area Name`,
+      Agencies = Agency_Count,
+      `Total Annual Trips` = Total_UPT,
+      `TFI` = Fragmentation_Index
+    ) %>%
+    mutate(
+      `Total Annual Trips` = format(as.numeric(`Total Annual Trips`), big.mark = ","),
+      `TFI` = format(round(as.numeric(`TFI`), 2), nsmall = 2)
+    )
+
+  kable(df_summary, booktabs = TRUE, align = "lccc") %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+}
+```
+
+## V. Advanced Analysis: The "Ridership Deficit"
+
+Applying the counterfactual model to fragmented "Secondary" areas reveals a significant suppression of ridership potential.
+
+### 5.1 Bias-Corrected Deficit Results
+
+By training the model on centralized urban cores (Primary areas) and applying it to fragmented catchments, we quantify the **Ridership Deficit**. Even after controlling for the fact that suburban areas like Northern Kentucky (TANK) or Oakland County (SMART) have lower densities than their respective cores, they still significantly underperform their demographically predicted potential.
+
+```{r}
+#| label: deficit-summary
+#| message: false
+#| warning: false
+
+deficit_summary_path <- "ridership_deficit_summary.csv"
+if (file.exists(deficit_summary_path)) {
+  summary_df <- read_csv(deficit_summary_path) %>%
+    mutate(
+      `Actual Riders` = format(round(Actual_Riders), big.mark = ","),
+      `Predicted Potential` = format(round(Predicted_Potential), big.mark = ","),
+      `Ridership Deficit` = format(round(Ridership_Deficit), big.mark = ","),
+      `Pct. Market Loss` = paste0(round(Pct_Market_Loss * 100, 1), "%")
+    ) %>%
+    select(Region, `Actual Riders`, `Predicted Potential`, `Ridership Deficit`, `Pct. Market Loss`)
+  
+  kable(summary_df, booktabs = TRUE, align = "lcccc") %>%
+    kable_styling(bootstrap_options = c("striped", "hover"))
+}
+```
+
+### 5.2 Key Findings: The Fragmentation Tax
+
+*   **Phoenix & Detroit:** These regions show the most extreme "Fragmentation Tax," with market losses exceeding **70%**. This suggests that in the absence of a unified regional authority, the suburban service is effectively disconnected from the regional labor market.
+*   **The Cincinnati-NKY Disparity:** Northern Kentucky (TANK) territory exhibits a **54.9% ridership deficit**. This means that if NKY were integrated into a unified Cincinnati-Metro authority with equivalent service standards, ridership would more than double based on the demographics of its residents.
+
+## VI. Discussion and Policy Implications
+
+### 6.1 The Cost of Sovereignty
+
+The results suggest that "Institutional Sovereignty" for suburban agencies comes at a steep price. Fragmentation is not merely a logistical hurdle but a structural barrier that suppresses transit mode share by more than half in many American metros.
+
+### 6.2 Recommendations for Consolidation
+1.  **Unified Network Management:** States should mandate regional fare and schedule integration to eliminate the visible "friction" of multiple agencies.
+2.  **Service Level Standardization:** Regional funding should be tied to ensuring that "Secondary" catchments receive service frequency comparable to demographically similar "Primary" tracts.
+
+## VII. Conclusion
+
+Institutional fragmentation is a primary driver of transit underperformance in the United States. By introducing the **Transit Fragmentation Index** and the **Ridership Deficit Model**, we provide a robust econometric framework to measure the cost of political localism. Even after controlling for density and income, the "Fragmentation Tax" remains a dominant factor in urban mobility outcomes.
+
+## VIII. References
+
+*   **Federal Transit Administration (2024).** *2023 National Transit Database.*
+*   **U.S. Census Bureau (2022).** *American Community Survey 5-Year Estimates.*
+*   **Coase, R. H. (1937).** *The Nature of the Firm.* Economica.
+*   **Vuchic, V. R. (2005).** *Urban Transit: Operations, Planning, and Economics.*

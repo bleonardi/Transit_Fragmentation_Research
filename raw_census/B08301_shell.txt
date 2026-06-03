@@ -1,0 +1,41 @@
+B08301|1.0|0|B08301_001|Total:|Means of Transportation to Work|Workers 16 years and over|int
+B08301|2.0|1|B08301_002|Car, truck, or van:|Means of Transportation to Work|Workers 16 years and over|int
+B08301|3.0|2|B08301_003|Drove alone|Means of Transportation to Work|Workers 16 years and over|int
+B08301|4.0|2|B08301_004|Carpooled:|Means of Transportation to Work|Workers 16 years and over|int
+B08301|5.0|3|B08301_005|In 2-person carpool|Means of Transportation to Work|Workers 16 years and over|int
+B08301|6.0|3|B08301_006|In 3-person carpool|Means of Transportation to Work|Workers 16 years and over|int
+B08301|7.0|3|B08301_007|In 4-person carpool|Means of Transportation to Work|Workers 16 years and over|int
+B08301|8.0|3|B08301_008|In 5- or 6-person carpool|Means of Transportation to Work|Workers 16 years and over|int
+B08301|9.0|3|B08301_009|In 7-or-more-person carpool|Means of Transportation to Work|Workers 16 years and over|int
+B08301|10.0|1|B08301_010|Public transportation (excluding taxicab):|Means of Transportation to Work|Workers 16 years and over|int
+B08301|11.0|2|B08301_011|Bus|Means of Transportation to Work|Workers 16 years and over|int
+B08301|12.0|2|B08301_012|Subway or elevated rail|Means of Transportation to Work|Workers 16 years and over|int
+B08301|13.0|2|B08301_013|Long-distance train or commuter rail|Means of Transportation to Work|Workers 16 years and over|int
+B08301|14.0|2|B08301_014|Light rail, streetcar or trolley (carro público in Puerto Rico)|Means of Transportation to Work|Workers 16 years and over|int
+B08301|15.0|2|B08301_015|Ferryboat|Means of Transportation to Work|Workers 16 years and over|int
+B08301|16.0|1|B08301_016|Taxicab|Means of Transportation to Work|Workers 16 years and over|int
+B08301|17.0|1|B08301_017|Motorcycle|Means of Transportation to Work|Workers 16 years and over|int
+B08301|18.0|1|B08301_018|Bicycle|Means of Transportation to Work|Workers 16 years and over|int
+B08301|19.0|1|B08301_019|Walked|Means of Transportation to Work|Workers 16 years and over|int
+B08301|20.0|1|B08301_020|Other means|Means of Transportation to Work|Workers 16 years and over|int
+B08301|21.0|1|B08301_021|Worked from home|Means of Transportation to Work|Workers 16 years and over|int
+B08302|1.0|0|B08302_001|Total:|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|2.0|1|B08302_002|12:00 a.m. to 4:59 a.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|3.0|1|B08302_003|5:00 a.m. to 5:29 a.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|4.0|1|B08302_004|5:30 a.m. to 5:59 a.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|5.0|1|B08302_005|6:00 a.m. to 6:29 a.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|6.0|1|B08302_006|6:30 a.m. to 6:59 a.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|7.0|1|B08302_007|7:00 a.m. to 7:29 a.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|8.0|1|B08302_008|7:30 a.m. to 7:59 a.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|9.0|1|B08302_009|8:00 a.m. to 8:29 a.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|10.0|1|B08302_010|8:30 a.m. to 8:59 a.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|11.0|1|B08302_011|9:00 a.m. to 9:59 a.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|12.0|1|B08302_012|10:00 a.m. to 10:59 a.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|13.0|1|B08302_013|11:00 a.m. to 11:59 a.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|14.0|1|B08302_014|12:00 p.m. to 3:59 p.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08302|15.0|1|B08302_015|4:00 p.m. to 11:59 p.m.|Time of Departure to Go to Work|Workers 16 years and over who did not work from home|int
+B08303|1.0|0|B08303_001|Total:|Travel Time to Work|Workers 16 years and over who did not work from home|int
+B08303|2.0|1|B08303_002|Less than 5 minutes|Travel Time to Work|Workers 16 years and over who did not work from home|int
+B08303|3.0|1|B08303_003|5 to 9 minutes|Travel Time to Work|Workers 16 years and over who did not work from home|int
+B08303|4.0|1|B08303_004|10 to 14 minutes|Travel Time to Work|Workers 16 years and over who did not work from home|int
+B08303|5.0|1|B08303_005|15 to 19 minutes|Travel Time to Work|Workers 16 years and over who did not work from home|int
