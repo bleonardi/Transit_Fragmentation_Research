@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Transit Fragmentation Research"
+  title: "Transit Fragmentation"
   navbar:
     left:
       - href: index.qmd
@@ -11,9 +11,15 @@ website:
       - href: DEFICIT_MAP.qmd
         text: Deficit Map
       - href: TRANSIT_MAP.qmd
-        text: Transit Map
+        text: Fragmentation Map
 
 format:
   html:
     theme: flatly
     toc: true
+    toc-depth: 3
+    linestretch: 1.6
+    code-fold: true
+    highlight-style: github
+    df-print: kable
+    page-layout: article

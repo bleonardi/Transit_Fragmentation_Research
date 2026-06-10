@@ -1,12 +1,7 @@
 ---
 title: "Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership"
-author: "Gemini CLI Research Assistant"
+author: "Benedict Leonardi"
 date: today
-format:
-  html:
-    toc: true
-    code-fold: true
-    theme: cosmo
 execute:
   echo: false
   warning: false
@@ -27,7 +22,7 @@ In many U.S. metropolitan areas, transit service is partitioned among multiple i
 
 The efficiency of public transit is often measured by Vehicle Revenue Miles (VRM) or operating costs, but the *institutional structure* of service delivery is rarely quantified as a primary variable. In the United States, transit governance is a patchwork of city agencies, county authorities, and regional boards. While "Home Rule" and local control are often prized, they create institutional fragmentation.
 
-Fragmentation introduces "Governance Friction"—the cumulative transaction costs borne by the rider. These include uncoordinated schedules, disparate fare structures, lack of transfer reciprocity, and confusing branding. In this paper, we seek to answer: *Does the institutional split of a region’s transit service delivery negatively impact its total ridership output, even when controlling for land-use and demographic differences?*
+Fragmentation introduces "Governance Friction"—the cumulative transaction costs borne by the rider. These include uncoordinated schedules, disparate fare structures, lack of transfer reciprocity, and confusing branding. The central question: *Does the institutional split of a region’s transit service delivery negatively impact its total ridership output, even when controlling for land-use and demographic differences?*
 
 ## II. Theoretical Framework: The Coasean Transit Model
 
@@ -150,7 +145,7 @@ The results suggest that "Institutional Sovereignty" for suburban agencies comes
 
 ## VII. Conclusion
 
-Institutional fragmentation is a primary driver of transit underperformance in the United States. By introducing the **Transit Fragmentation Index** and the **Ridership Deficit Model**, we provide a robust econometric framework to measure the cost of political localism. Even after controlling for density and income, the "Fragmentation Tax" remains a dominant factor in urban mobility outcomes.
+Institutional fragmentation is a primary driver of transit underperformance in the United States. The **Transit Fragmentation Index** and the **Ridership Deficit Model** together provide a framework for measuring the cost of political localism. Even after controlling for density and income, the "Fragmentation Tax" remains a dominant factor in urban mobility outcomes.
 
 ## VIII. References
 

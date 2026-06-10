@@ -1,12 +1,8 @@
 ---
 title: "National Ridership Deficit Map: The Cost of Fragmentation"
 subtitle: "Comparing Actual vs. Potential Transit Commuters (Top Metropolitan Areas)"
-author: "Gemini CLI Research Assistant"
-date: "2026-05-30"
-format:
-  html:
-    toc: false
-    self-contained: true
+author: "Benedict Leonardi"
+date: today
 ---
 
 ```{r}

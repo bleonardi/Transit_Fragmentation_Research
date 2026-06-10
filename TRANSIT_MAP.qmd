@@ -1,13 +1,8 @@
 ---
 title: "Mapping Transit Fragmentation Across the US"
 subtitle: "Interactive Visualization of Governance Friction (Top 50 Cities)"
-author: "Gemini CLI Research Assistant"
-date: "2026-05-29"
-format:
-  html:
-    toc: false
-    code-fold: true
-    self-contained: true
+author: "Benedict Leonardi"
+date: today
 ---
 
 ```{r}
