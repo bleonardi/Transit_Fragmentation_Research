@@ -7,10 +7,6 @@ format:
     toc: true
     code-fold: true
     theme: cosmo
-  pdf:
-    documentclass: article
-    margin-left: 1in
-    margin-right: 1in
 execute:
   echo: false
   warning: false

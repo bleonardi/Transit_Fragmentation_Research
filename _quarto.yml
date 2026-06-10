@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Transit Fragmentation Research"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Analysis
+      - href: DEFICIT_MAP.qmd
+        text: Deficit Map
+      - href: TRANSIT_MAP.qmd
+        text: Transit Map
+
+format:
+  html:
+    theme: cosmo
+    toc: true

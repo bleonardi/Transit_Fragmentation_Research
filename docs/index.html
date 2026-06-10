@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gemini CLI Research Assistant">
+<meta name="dcterms.date" content="2026-06-09">
+
+<title>Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership – Transit Fragmentation Research</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Transit Fragmentation Research</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Analysis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./DEFICIT_MAP.html"> 
+<span class="menu-text">Deficit Map</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./TRANSIT_MAP.html"> 
+<span class="menu-text">Transit Map</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#i.-introduction" id="toc-i.-introduction" class="nav-link" data-scroll-target="#i.-introduction">I. Introduction</a></li>
+  <li><a href="#ii.-theoretical-framework-the-coasean-transit-model" id="toc-ii.-theoretical-framework-the-coasean-transit-model" class="nav-link" data-scroll-target="#ii.-theoretical-framework-the-coasean-transit-model">II. Theoretical Framework: The Coasean Transit Model</a></li>
+  <li><a href="#iii.-data-and-methodology" id="toc-iii.-data-and-methodology" class="nav-link" data-scroll-target="#iii.-data-and-methodology">III. Data and Methodology</a>
+  <ul class="collapse">
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">3.1 Data Sources</a></li>
+  <li><a href="#the-transit-fragmentation-index-tfi" id="toc-the-transit-fragmentation-index-tfi" class="nav-link" data-scroll-target="#the-transit-fragmentation-index-tfi">3.2 The Transit Fragmentation Index (TFI)</a></li>
+  <li><a href="#the-counterfactual-deficit-model" id="toc-the-counterfactual-deficit-model" class="nav-link" data-scroll-target="#the-counterfactual-deficit-model">3.3 The Counterfactual Deficit Model</a></li>
+  </ul></li>
+  <li><a href="#iv.-national-fragmentation-trends" id="toc-iv.-national-fragmentation-trends" class="nav-link" data-scroll-target="#iv.-national-fragmentation-trends">IV. National Fragmentation Trends</a></li>
+  <li><a href="#v.-advanced-analysis-the-ridership-deficit" id="toc-v.-advanced-analysis-the-ridership-deficit" class="nav-link" data-scroll-target="#v.-advanced-analysis-the-ridership-deficit">V. Advanced Analysis: The “Ridership Deficit”</a>
+  <ul class="collapse">
+  <li><a href="#bias-corrected-deficit-results" id="toc-bias-corrected-deficit-results" class="nav-link" data-scroll-target="#bias-corrected-deficit-results">5.1 Bias-Corrected Deficit Results</a></li>
+  <li><a href="#key-findings-the-fragmentation-tax" id="toc-key-findings-the-fragmentation-tax" class="nav-link" data-scroll-target="#key-findings-the-fragmentation-tax">5.2 Key Findings: The Fragmentation Tax</a></li>
+  </ul></li>
+  <li><a href="#vi.-discussion-and-policy-implications" id="toc-vi.-discussion-and-policy-implications" class="nav-link" data-scroll-target="#vi.-discussion-and-policy-implications">VI. Discussion and Policy Implications</a>
+  <ul class="collapse">
+  <li><a href="#the-cost-of-sovereignty" id="toc-the-cost-of-sovereignty" class="nav-link" data-scroll-target="#the-cost-of-sovereignty">6.1 The Cost of Sovereignty</a></li>
+  <li><a href="#recommendations-for-consolidation" id="toc-recommendations-for-consolidation" class="nav-link" data-scroll-target="#recommendations-for-consolidation">6.2 Recommendations for Consolidation</a></li>
+  </ul></li>
+  <li><a href="#vii.-conclusion" id="toc-vii.-conclusion" class="nav-link" data-scroll-target="#vii.-conclusion">VII. Conclusion</a></li>
+  <li><a href="#viii.-references" id="toc-viii.-references" class="nav-link" data-scroll-target="#viii.-references">VIII. References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gemini CLI Research Assistant </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 9, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>In many U.S. metropolitan areas, transit service is partitioned among multiple independent authorities, often following legacy municipal or county boundaries rather than modern commuting patterns. This paper introduces a <strong>Transit Fragmentation Index (TFI)</strong> to quantify this institutional “friction” and develops a <strong>Counterfactual Deficit Model</strong> to estimate the resulting ridership loss. Controlling for population density, housing density, median income, and region-specific fixed effects, we find a persistent “Fragmentation Tax” across the United States. In regions like Northern Kentucky and suburban Detroit, institutional fragmentation accounts for a <strong>55% to 79% loss</strong> in transit market share compared to demographically identical neighborhoods served by unified core agencies.</p>
+<hr>
+<p><strong>JEL Codes:</strong> R41, R48, H77, L32<br>
+<strong>Keywords:</strong> Urban Economics, Transit Governance, Institutional Fragmentation, Counterfactual Modeling, Herfindahl-Hirschman Index</p>
+<hr>
+</section>
+<section id="i.-introduction" class="level2">
+<h2 class="anchored" data-anchor-id="i.-introduction">I. Introduction</h2>
+<p>The efficiency of public transit is often measured by Vehicle Revenue Miles (VRM) or operating costs, but the <em>institutional structure</em> of service delivery is rarely quantified as a primary variable. In the United States, transit governance is a patchwork of city agencies, county authorities, and regional boards. While “Home Rule” and local control are often prized, they create institutional fragmentation.</p>
+<p>Fragmentation introduces “Governance Friction”—the cumulative transaction costs borne by the rider. These include uncoordinated schedules, disparate fare structures, lack of transfer reciprocity, and confusing branding. In this paper, we seek to answer: <em>Does the institutional split of a region’s transit service delivery negatively impact its total ridership output, even when controlling for land-use and demographic differences?</em></p>
+</section>
+<section id="ii.-theoretical-framework-the-coasean-transit-model" class="level2">
+<h2 class="anchored" data-anchor-id="ii.-theoretical-framework-the-coasean-transit-model">II. Theoretical Framework: The Coasean Transit Model</h2>
+<p>We apply the <strong>Coase Theorem</strong> to transit governance. In an ideal metropolitan area with zero transaction costs, it would not matter how many agencies exist; they would negotiate perfectly coordinated transfers and fare-sharing agreements to maximize ridership.</p>
+<p>However, in reality, transaction costs are high. Each independent agency has its own board, labor contracts, and political incentives. We model a rider’s utility function as:</p>
+<p><span class="math display">\[U = V - C_{fare} - C_{time} - \phi(F)\]</span></p>
+<p>Where <span class="math inline">\(\phi(F)\)</span> is the <strong>Fragmentation Penalty</strong>, a function of the institutional split (<span class="math inline">\(F\)</span>). As <span class="math inline">\(F\)</span> increases, the psychological and logistical cost of navigating the system increases, leading to a substitution effect toward private automobiles.</p>
+</section>
+<section id="iii.-data-and-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="iii.-data-and-methodology">III. Data and Methodology</h2>
+<section id="data-sources" class="level3">
+<h3 class="anchored" data-anchor-id="data-sources">3.1 Data Sources</h3>
+<p>We utilize the <strong>2023 National Transit Database (NTD)</strong> for agency-level ridership and the <strong>2022 ACS 5-Year Estimates</strong> for tract-level demographic and commuting data. Geographic centroids are sourced from the <strong>2020 Census Gazetteer</strong>.</p>
+</section>
+<section id="the-transit-fragmentation-index-tfi" class="level3">
+<h3 class="anchored" data-anchor-id="the-transit-fragmentation-index-tfi">3.2 The Transit Fragmentation Index (TFI)</h3>
+<p>We first calculate the <strong>Herfindahl-Hirschman Index (HHI)</strong> for ridership (Unlinked Passenger Trips) within each Urbanized Area (UZA):</p>
+<p><span class="math display">\[HHI_{UZA} = \sum_{i=1}^{n} s_i^2\]</span></p>
+<p>where <span class="math inline">\(s_i\)</span> is the market share of agency <span class="math inline">\(i\)</span>. We then define the <strong>Transit Fragmentation Index (TFI)</strong> as the inverse: <span class="math inline">\(TFI = 1/HHI_{UZA}\)</span>.</p>
+</section>
+<section id="the-counterfactual-deficit-model" class="level3">
+<h3 class="anchored" data-anchor-id="the-counterfactual-deficit-model">3.3 The Counterfactual Deficit Model</h3>
+<p>To isolate the “Governance Friction” effect from built-environment biases, we employ a counterfactual regression model. We identify “Primary” service areas (centralized urban cores) and “Secondary” areas (fragmented satellite catchments).</p>
+<p>The model controls for: * <strong>Median Household Income:</strong> Capturing the car-ownership “wealth effect.” * <strong>Population &amp; Housing Density:</strong> Controlling for land-use intensity and transit-supportive built environments. * <strong>Region Fixed Effects:</strong> Accounting for unique market dynamics (e.g., Midwest vs.&nbsp;West Coast network effects).</p>
+</section>
+</section>
+<section id="iv.-national-fragmentation-trends" class="level2">
+<h2 class="anchored" data-anchor-id="iv.-national-fragmentation-trends">IV. National Fragmentation Trends</h2>
+<p>Using the analysis of 2023 data, we observe a wide variance in metropolitan fragmentation.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Metropolitan Region</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Agencies</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Total Annual Trips</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">TFI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">New York Non-UZA</td>
+<td style="text-align: center;">79</td>
+<td style="text-align: center;">16,405,999</td>
+<td style="text-align: center;">10.78</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Phoenix--Mesa--Scottsdale, AZ</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">114,956,877</td>
+<td style="text-align: center;">3.78</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">San Francisco--Oakland, CA</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">671,089,269</td>
+<td style="text-align: center;">2.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Phoenix West--Goodyear--Avondale, AZ</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">4,098,835</td>
+<td style="text-align: center;">2.21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cincinnati, OH--KY</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">46,724,690</td>
+<td style="text-align: center;">1.59</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New York--Jersey City--Newark, NY--NJ</td>
+<td style="text-align: center;">53</td>
+<td style="text-align: center;">9,432,440,348</td>
+<td style="text-align: center;">1.45</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chicago, IL--IN</td>
+<td style="text-align: center;">51</td>
+<td style="text-align: center;">984,243,122</td>
+<td style="text-align: center;">1.38</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Houston, TX</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">203,079,979</td>
+<td style="text-align: center;">1.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="v.-advanced-analysis-the-ridership-deficit" class="level2">
+<h2 class="anchored" data-anchor-id="v.-advanced-analysis-the-ridership-deficit">V. Advanced Analysis: The “Ridership Deficit”</h2>
+<p>Applying the counterfactual model to fragmented “Secondary” areas reveals a significant suppression of ridership potential.</p>
+<section id="bias-corrected-deficit-results" class="level3">
+<h3 class="anchored" data-anchor-id="bias-corrected-deficit-results">5.1 Bias-Corrected Deficit Results</h3>
+<p>By training the model on centralized urban cores (Primary areas) and applying it to fragmented catchments, we quantify the <strong>Ridership Deficit</strong>. Even after controlling for the fact that suburban areas like Northern Kentucky (TANK) or Oakland County (SMART) have lower densities than their respective cores, they still significantly underperform their demographically predicted potential.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Region</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Actual Riders</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Predicted Potential</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Ridership Deficit</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Pct. Market Loss</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Phoenix</td>
+<td style="text-align: center;">318</td>
+<td style="text-align: center;">1,513</td>
+<td style="text-align: center;">1,195</td>
+<td style="text-align: center;">79%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Detroit</td>
+<td style="text-align: center;">4,900</td>
+<td style="text-align: center;">17,314</td>
+<td style="text-align: center;">12,414</td>
+<td style="text-align: center;">71.7%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Seattle</td>
+<td style="text-align: center;">28,915</td>
+<td style="text-align: center;">79,182</td>
+<td style="text-align: center;">50,267</td>
+<td style="text-align: center;">63.5%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">San Francisco</td>
+<td style="text-align: center;">165,603</td>
+<td style="text-align: center;">422,842</td>
+<td style="text-align: center;">257,239</td>
+<td style="text-align: center;">60.8%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cincinnati</td>
+<td style="text-align: center;">1,938</td>
+<td style="text-align: center;">4,296</td>
+<td style="text-align: center;">2,358</td>
+<td style="text-align: center;">54.9%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tampa</td>
+<td style="text-align: center;">5,565</td>
+<td style="text-align: center;">8,159</td>
+<td style="text-align: center;">2,594</td>
+<td style="text-align: center;">31.8%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Riverside</td>
+<td style="text-align: center;">9,768</td>
+<td style="text-align: center;">11,996</td>
+<td style="text-align: center;">2,228</td>
+<td style="text-align: center;">18.6%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Durham/Raleigh</td>
+<td style="text-align: center;">3,785</td>
+<td style="text-align: center;">3,533</td>
+<td style="text-align: center;">-252</td>
+<td style="text-align: center;">-7.1%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="key-findings-the-fragmentation-tax" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-the-fragmentation-tax">5.2 Key Findings: The Fragmentation Tax</h3>
+<ul>
+<li><strong>Phoenix &amp; Detroit:</strong> These regions show the most extreme “Fragmentation Tax,” with market losses exceeding <strong>70%</strong>. This suggests that in the absence of a unified regional authority, the suburban service is effectively disconnected from the regional labor market.</li>
+<li><strong>The Cincinnati-NKY Disparity:</strong> Northern Kentucky (TANK) territory exhibits a <strong>54.9% ridership deficit</strong>. This means that if NKY were integrated into a unified Cincinnati-Metro authority with equivalent service standards, ridership would more than double based on the demographics of its residents.</li>
+</ul>
+</section>
+</section>
+<section id="vi.-discussion-and-policy-implications" class="level2">
+<h2 class="anchored" data-anchor-id="vi.-discussion-and-policy-implications">VI. Discussion and Policy Implications</h2>
+<section id="the-cost-of-sovereignty" class="level3">
+<h3 class="anchored" data-anchor-id="the-cost-of-sovereignty">6.1 The Cost of Sovereignty</h3>
+<p>The results suggest that “Institutional Sovereignty” for suburban agencies comes at a steep price. Fragmentation is not merely a logistical hurdle but a structural barrier that suppresses transit mode share by more than half in many American metros.</p>
+</section>
+<section id="recommendations-for-consolidation" class="level3">
+<h3 class="anchored" data-anchor-id="recommendations-for-consolidation">6.2 Recommendations for Consolidation</h3>
+<ol type="1">
+<li><strong>Unified Network Management:</strong> States should mandate regional fare and schedule integration to eliminate the visible “friction” of multiple agencies.</li>
+<li><strong>Service Level Standardization:</strong> Regional funding should be tied to ensuring that “Secondary” catchments receive service frequency comparable to demographically similar “Primary” tracts.</li>
+</ol>
+</section>
+</section>
+<section id="vii.-conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="vii.-conclusion">VII. Conclusion</h2>
+<p>Institutional fragmentation is a primary driver of transit underperformance in the United States. By introducing the <strong>Transit Fragmentation Index</strong> and the <strong>Ridership Deficit Model</strong>, we provide a robust econometric framework to measure the cost of political localism. Even after controlling for density and income, the “Fragmentation Tax” remains a dominant factor in urban mobility outcomes.</p>
+</section>
+<section id="viii.-references" class="level2">
+<h2 class="anchored" data-anchor-id="viii.-references">VIII. References</h2>
+<ul>
+<li><strong>Federal Transit Administration (2024).</strong> <em>2023 National Transit Database.</em></li>
+<li><strong>U.S. Census Bureau (2022).</strong> <em>American Community Survey 5-Year Estimates.</em></li>
+<li><strong>Coase, R. H. (1937).</strong> <em>The Nature of the Firm.</em> Economica.</li>
+<li><strong>Vuchic, V. R. (2005).</strong> <em>Urban Transit: Operations, Planning, and Economics.</em></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
