@@ -153,3 +153,8 @@ Institutional fragmentation is a primary driver of transit underperformance in t
 *   **U.S. Census Bureau (2022).** *American Community Survey 5-Year Estimates.*
 *   **Coase, R. H. (1937).** *The Nature of the Firm.* Economica.
 *   **Vuchic, V. R. (2005).** *Urban Transit: Operations, Planning, and Economics.*
+
+
+---
+
+*[View source on GitHub](https://github.com/bleonardi/Transit_Fragmentation_Research){target="_blank"}*
