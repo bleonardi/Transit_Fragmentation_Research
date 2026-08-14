@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Benedict Leonardi">
-<meta name="dcterms.date" content="2026-06-22">
+<meta name="dcterms.date" content="2026-08-14">
 
 <title>Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership – Transit Fragmentation</title>
 <style>
@@ -197,7 +197,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 22, 2026</p>
+      <p class="date">August 14, 2026</p>
     </div>
   </div>
   
@@ -211,7 +211,6 @@ window.Quarto = {
 
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>In many U.S. metropolitan areas, transit service is partitioned among multiple independent authorities, often following legacy municipal or county boundaries rather than modern commuting patterns. This paper introduces a <strong>Transit Fragmentation Index (TFI)</strong> to quantify this institutional “friction” and develops a <strong>Counterfactual Deficit Model</strong> to estimate the resulting ridership loss. Controlling for population density, housing density, median income, and region-specific fixed effects, we find a persistent “Fragmentation Tax” across the United States. In regions like Northern Kentucky and suburban Detroit, institutional fragmentation accounts for a <strong>55% to 79% loss</strong> in transit market share compared to demographically identical neighborhoods served by unified core agencies.</p>
 <hr>
 <p><strong>JEL Codes:</strong> R41, R48, H77, L32<br>
 <strong>Keywords:</strong> Urban Economics, Transit Governance, Institutional Fragmentation, Counterfactual Modeling, Herfindahl-Hirschman Index</p>
@@ -219,37 +218,27 @@ window.Quarto = {
 </section>
 <section id="i.-introduction" class="level2">
 <h2 class="anchored" data-anchor-id="i.-introduction">I. Introduction</h2>
-<p>The efficiency of public transit is often measured by Vehicle Revenue Miles (VRM) or operating costs, but the <em>institutional structure</em> of service delivery is rarely quantified as a primary variable. In the United States, transit governance is a patchwork of city agencies, county authorities, and regional boards. While “Home Rule” and local control are often prized, they create institutional fragmentation.</p>
-<p>Fragmentation introduces “Governance Friction”—the cumulative transaction costs borne by the rider. These include uncoordinated schedules, disparate fare structures, lack of transfer reciprocity, and confusing branding. The central question: <em>Does the institutional split of a region’s transit service delivery negatively impact its total ridership output, even when controlling for land-use and demographic differences?</em></p>
 </section>
 <section id="ii.-theoretical-framework-the-coasean-transit-model" class="level2">
 <h2 class="anchored" data-anchor-id="ii.-theoretical-framework-the-coasean-transit-model">II. Theoretical Framework: The Coasean Transit Model</h2>
-<p>We apply the <strong>Coase Theorem</strong> to transit governance. In an ideal metropolitan area with zero transaction costs, it would not matter how many agencies exist; they would negotiate perfectly coordinated transfers and fare-sharing agreements to maximize ridership.</p>
-<p>However, in reality, transaction costs are high. Each independent agency has its own board, labor contracts, and political incentives. We model a rider’s utility function as:</p>
 <p><span class="math display">\[U = V - C_{fare} - C_{time} - \phi(F)\]</span></p>
-<p>Where <span class="math inline">\(\phi(F)\)</span> is the <strong>Fragmentation Penalty</strong>, a function of the institutional split (<span class="math inline">\(F\)</span>). As <span class="math inline">\(F\)</span> increases, the psychological and logistical cost of navigating the system increases, leading to a substitution effect toward private automobiles.</p>
 </section>
 <section id="iii.-data-and-methodology" class="level2">
 <h2 class="anchored" data-anchor-id="iii.-data-and-methodology">III. Data and Methodology</h2>
 <section id="data-sources" class="level3">
 <h3 class="anchored" data-anchor-id="data-sources">3.1 Data Sources</h3>
-<p>We utilize the <strong>2023 National Transit Database (NTD)</strong> for agency-level ridership and the <strong>2022 ACS 5-Year Estimates</strong> for tract-level demographic and commuting data. Geographic centroids are sourced from the <strong>2020 Census Gazetteer</strong>.</p>
 </section>
 <section id="the-transit-fragmentation-index-tfi" class="level3">
 <h3 class="anchored" data-anchor-id="the-transit-fragmentation-index-tfi">3.2 The Transit Fragmentation Index (TFI)</h3>
-<p>We first calculate the <strong>Herfindahl-Hirschman Index (HHI)</strong> for ridership (Unlinked Passenger Trips) within each Urbanized Area (UZA):</p>
 <p><span class="math display">\[HHI_{UZA} = \sum_{i=1}^{n} s_i^2\]</span></p>
-<p>where <span class="math inline">\(s_i\)</span> is the market share of agency <span class="math inline">\(i\)</span>. We then define the <strong>Transit Fragmentation Index (TFI)</strong> as the inverse: <span class="math inline">\(TFI = 1/HHI_{UZA}\)</span>.</p>
+<p><span class="math inline">\(TFI = 1/HHI_{UZA}\)</span></p>
 </section>
 <section id="the-counterfactual-deficit-model" class="level3">
 <h3 class="anchored" data-anchor-id="the-counterfactual-deficit-model">3.3 The Counterfactual Deficit Model</h3>
-<p>To isolate the “Governance Friction” effect from built-environment biases, we employ a counterfactual regression model. We identify “Primary” service areas (centralized urban cores) and “Secondary” areas (fragmented satellite catchments).</p>
-<p>The model controls for: * <strong>Median Household Income:</strong> Capturing the car-ownership “wealth effect.” * <strong>Population &amp; Housing Density:</strong> Controlling for land-use intensity and transit-supportive built environments. * <strong>Region Fixed Effects:</strong> Accounting for unique market dynamics (e.g., Midwest vs.&nbsp;West Coast network effects).</p>
 </section>
 </section>
 <section id="iv.-national-fragmentation-trends" class="level2">
 <h2 class="anchored" data-anchor-id="iv.-national-fragmentation-trends">IV. National Fragmentation Trends</h2>
-<p>Using the analysis of 2023 data, we observe a wide variance in metropolitan fragmentation.</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table table-striped table-hover table-condensed caption-top table-sm small">
@@ -317,10 +306,8 @@ window.Quarto = {
 </section>
 <section id="v.-advanced-analysis-the-ridership-deficit" class="level2">
 <h2 class="anchored" data-anchor-id="v.-advanced-analysis-the-ridership-deficit">V. Advanced Analysis: The “Ridership Deficit”</h2>
-<p>Applying the counterfactual model to fragmented “Secondary” areas reveals a significant suppression of ridership potential.</p>
 <section id="bias-corrected-deficit-results" class="level3">
 <h3 class="anchored" data-anchor-id="bias-corrected-deficit-results">5.1 Bias-Corrected Deficit Results</h3>
-<p>By training the model on centralized urban cores (Primary areas) and applying it to fragmented catchments, we quantify the <strong>Ridership Deficit</strong>. Even after controlling for the fact that suburban areas like Northern Kentucky (TANK) or Oakland County (SMART) have lower densities than their respective cores, they still significantly underperform their demographically predicted potential.</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table table-striped table-hover caption-top table-sm small">
@@ -397,29 +384,19 @@ window.Quarto = {
 </section>
 <section id="key-findings-the-fragmentation-tax" class="level3">
 <h3 class="anchored" data-anchor-id="key-findings-the-fragmentation-tax">5.2 Key Findings: The Fragmentation Tax</h3>
-<ul>
-<li><strong>Phoenix &amp; Detroit:</strong> These regions show the most extreme “Fragmentation Tax,” with market losses exceeding <strong>70%</strong>. This suggests that in the absence of a unified regional authority, the suburban service is effectively disconnected from the regional labor market.</li>
-<li><strong>The Cincinnati-NKY Disparity:</strong> Northern Kentucky (TANK) territory exhibits a <strong>54.9% ridership deficit</strong>. This means that if NKY were integrated into a unified Cincinnati-Metro authority with equivalent service standards, ridership would more than double based on the demographics of its residents.</li>
-</ul>
 </section>
 </section>
 <section id="vi.-discussion-and-policy-implications" class="level2">
 <h2 class="anchored" data-anchor-id="vi.-discussion-and-policy-implications">VI. Discussion and Policy Implications</h2>
 <section id="the-cost-of-sovereignty" class="level3">
 <h3 class="anchored" data-anchor-id="the-cost-of-sovereignty">6.1 The Cost of Sovereignty</h3>
-<p>The results suggest that “Institutional Sovereignty” for suburban agencies comes at a steep price. Fragmentation is not merely a logistical hurdle but a structural barrier that suppresses transit mode share by more than half in many American metros.</p>
 </section>
 <section id="recommendations-for-consolidation" class="level3">
 <h3 class="anchored" data-anchor-id="recommendations-for-consolidation">6.2 Recommendations for Consolidation</h3>
-<ol type="1">
-<li><strong>Unified Network Management:</strong> States should mandate regional fare and schedule integration to eliminate the visible “friction” of multiple agencies.</li>
-<li><strong>Service Level Standardization:</strong> Regional funding should be tied to ensuring that “Secondary” catchments receive service frequency comparable to demographically similar “Primary” tracts.</li>
-</ol>
 </section>
 </section>
 <section id="vii.-conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="vii.-conclusion">VII. Conclusion</h2>
-<p>Institutional fragmentation is a primary driver of transit underperformance in the United States. The <strong>Transit Fragmentation Index</strong> and the <strong>Ridership Deficit Model</strong> together provide a framework for measuring the cost of political localism. Even after controlling for density and income, the “Fragmentation Tax” remains a dominant factor in urban mobility outcomes.</p>
 </section>
 <section id="viii.-references" class="level2">
 <h2 class="anchored" data-anchor-id="viii.-references">VIII. References</h2>
@@ -429,6 +406,8 @@ window.Quarto = {
 <li><strong>Coase, R. H. (1937).</strong> <em>The Nature of the Firm.</em> Economica.</li>
 <li><strong>Vuchic, V. R. (2005).</strong> <em>Urban Transit: Operations, Planning, and Economics.</em></li>
 </ul>
+<hr>
+<p><em><a href="https://github.com/bleonardi/Transit_Fragmentation_Research" target="_blank">View source on GitHub</a></em></p>
 
 
 </section>

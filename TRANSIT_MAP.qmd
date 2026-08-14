@@ -83,12 +83,6 @@ leaflet(map_df_top50) %>%
 
 ## Summary of National Fragmentation (Top 50)
 
-This interactive map focuses on the **Top 50 U.S. Urbanized Areas by ridership**. By limiting the scope, we can more clearly see the relationship between size and governance friction in major metropolitan areas.
-
-*   **Marker Size** is scaled to the logarithm of ridership, with New York City as the maximum reference point.
-*   **Marker Color** represents the **Transit Fragmentation Index (TFI)**.
-*   **Observations:** Regions with multiple competing heavy-rail or regional rail systems (like the Bay Area) often show higher fragmentation scores than single-provider systems.
-
 ### Top 10 Cities in this Dataset
 
 ```{r}

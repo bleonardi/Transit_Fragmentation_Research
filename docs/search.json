@@ -67,70 +67,70 @@
     "href": "index.html",
     "title": "Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership",
     "section": "",
-    "text": "In many U.S. metropolitan areas, transit service is partitioned among multiple independent authorities, often following legacy municipal or county boundaries rather than modern commuting patterns. This paper introduces a Transit Fragmentation Index (TFI) to quantify this institutional “friction” and develops a Counterfactual Deficit Model to estimate the resulting ridership loss. Controlling for population density, housing density, median income, and region-specific fixed effects, we find a persistent “Fragmentation Tax” across the United States. In regions like Northern Kentucky and suburban Detroit, institutional fragmentation accounts for a 55% to 79% loss in transit market share compared to demographically identical neighborhoods served by unified core agencies.\n\nJEL Codes: R41, R48, H77, L32\nKeywords: Urban Economics, Transit Governance, Institutional Fragmentation, Counterfactual Modeling, Herfindahl-Hirschman Index"
+    "text": "JEL Codes: R41, R48, H77, L32\nKeywords: Urban Economics, Transit Governance, Institutional Fragmentation, Counterfactual Modeling, Herfindahl-Hirschman Index"
   },
   {
     "objectID": "index.html#abstract",
     "href": "index.html#abstract",
     "title": "Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership",
     "section": "",
-    "text": "In many U.S. metropolitan areas, transit service is partitioned among multiple independent authorities, often following legacy municipal or county boundaries rather than modern commuting patterns. This paper introduces a Transit Fragmentation Index (TFI) to quantify this institutional “friction” and develops a Counterfactual Deficit Model to estimate the resulting ridership loss. Controlling for population density, housing density, median income, and region-specific fixed effects, we find a persistent “Fragmentation Tax” across the United States. In regions like Northern Kentucky and suburban Detroit, institutional fragmentation accounts for a 55% to 79% loss in transit market share compared to demographically identical neighborhoods served by unified core agencies.\n\nJEL Codes: R41, R48, H77, L32\nKeywords: Urban Economics, Transit Governance, Institutional Fragmentation, Counterfactual Modeling, Herfindahl-Hirschman Index"
+    "text": "JEL Codes: R41, R48, H77, L32\nKeywords: Urban Economics, Transit Governance, Institutional Fragmentation, Counterfactual Modeling, Herfindahl-Hirschman Index"
   },
   {
     "objectID": "index.html#i.-introduction",
     "href": "index.html#i.-introduction",
     "title": "Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership",
     "section": "I. Introduction",
-    "text": "I. Introduction\nThe efficiency of public transit is often measured by Vehicle Revenue Miles (VRM) or operating costs, but the institutional structure of service delivery is rarely quantified as a primary variable. In the United States, transit governance is a patchwork of city agencies, county authorities, and regional boards. While “Home Rule” and local control are often prized, they create institutional fragmentation.\nFragmentation introduces “Governance Friction”—the cumulative transaction costs borne by the rider. These include uncoordinated schedules, disparate fare structures, lack of transfer reciprocity, and confusing branding. The central question: Does the institutional split of a region’s transit service delivery negatively impact its total ridership output, even when controlling for land-use and demographic differences?"
+    "text": "I. Introduction"
   },
   {
     "objectID": "index.html#ii.-theoretical-framework-the-coasean-transit-model",
     "href": "index.html#ii.-theoretical-framework-the-coasean-transit-model",
     "title": "Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership",
     "section": "II. Theoretical Framework: The Coasean Transit Model",
-    "text": "II. Theoretical Framework: The Coasean Transit Model\nWe apply the Coase Theorem to transit governance. In an ideal metropolitan area with zero transaction costs, it would not matter how many agencies exist; they would negotiate perfectly coordinated transfers and fare-sharing agreements to maximize ridership.\nHowever, in reality, transaction costs are high. Each independent agency has its own board, labor contracts, and political incentives. We model a rider’s utility function as:\n\\[U = V - C_{fare} - C_{time} - \\phi(F)\\]\nWhere \\(\\phi(F)\\) is the Fragmentation Penalty, a function of the institutional split (\\(F\\)). As \\(F\\) increases, the psychological and logistical cost of navigating the system increases, leading to a substitution effect toward private automobiles."
+    "text": "II. Theoretical Framework: The Coasean Transit Model\n\\[U = V - C_{fare} - C_{time} - \\phi(F)\\]"
   },
   {
     "objectID": "index.html#iii.-data-and-methodology",
     "href": "index.html#iii.-data-and-methodology",
     "title": "Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership",
     "section": "III. Data and Methodology",
-    "text": "III. Data and Methodology\n\n3.1 Data Sources\nWe utilize the 2023 National Transit Database (NTD) for agency-level ridership and the 2022 ACS 5-Year Estimates for tract-level demographic and commuting data. Geographic centroids are sourced from the 2020 Census Gazetteer.\n\n\n3.2 The Transit Fragmentation Index (TFI)\nWe first calculate the Herfindahl-Hirschman Index (HHI) for ridership (Unlinked Passenger Trips) within each Urbanized Area (UZA):\n\\[HHI_{UZA} = \\sum_{i=1}^{n} s_i^2\\]\nwhere \\(s_i\\) is the market share of agency \\(i\\). We then define the Transit Fragmentation Index (TFI) as the inverse: \\(TFI = 1/HHI_{UZA}\\).\n\n\n3.3 The Counterfactual Deficit Model\nTo isolate the “Governance Friction” effect from built-environment biases, we employ a counterfactual regression model. We identify “Primary” service areas (centralized urban cores) and “Secondary” areas (fragmented satellite catchments).\nThe model controls for: * Median Household Income: Capturing the car-ownership “wealth effect.” * Population & Housing Density: Controlling for land-use intensity and transit-supportive built environments. * Region Fixed Effects: Accounting for unique market dynamics (e.g., Midwest vs. West Coast network effects)."
+    "text": "III. Data and Methodology\n\n3.1 Data Sources\n\n\n3.2 The Transit Fragmentation Index (TFI)\n\\[HHI_{UZA} = \\sum_{i=1}^{n} s_i^2\\]\n\\(TFI = 1/HHI_{UZA}\\)\n\n\n3.3 The Counterfactual Deficit Model"
   },
   {
     "objectID": "index.html#iv.-national-fragmentation-trends",
     "href": "index.html#iv.-national-fragmentation-trends",
     "title": "Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership",
     "section": "IV. National Fragmentation Trends",
-    "text": "IV. National Fragmentation Trends\nUsing the analysis of 2023 data, we observe a wide variance in metropolitan fragmentation.\n\n\n\n\n\nMetropolitan Region\nAgencies\nTotal Annual Trips\nTFI\n\n\n\n\nNew York Non-UZA\n79\n16,405,999\n10.78\n\n\nPhoenix--Mesa--Scottsdale, AZ\n9\n114,956,877\n3.78\n\n\nSan Francisco--Oakland, CA\n19\n671,089,269\n2.45\n\n\nPhoenix West--Goodyear--Avondale, AZ\n6\n4,098,835\n2.21\n\n\nCincinnati, OH--KY\n7\n46,724,690\n1.59\n\n\nNew York--Jersey City--Newark, NY--NJ\n53\n9,432,440,348\n1.45\n\n\nChicago, IL--IN\n51\n984,243,122\n1.38\n\n\nHouston, TX\n5\n203,079,979\n1.01"
+    "text": "IV. National Fragmentation Trends\n\n\n\n\n\nMetropolitan Region\nAgencies\nTotal Annual Trips\nTFI\n\n\n\n\nNew York Non-UZA\n79\n16,405,999\n10.78\n\n\nPhoenix--Mesa--Scottsdale, AZ\n9\n114,956,877\n3.78\n\n\nSan Francisco--Oakland, CA\n19\n671,089,269\n2.45\n\n\nPhoenix West--Goodyear--Avondale, AZ\n6\n4,098,835\n2.21\n\n\nCincinnati, OH--KY\n7\n46,724,690\n1.59\n\n\nNew York--Jersey City--Newark, NY--NJ\n53\n9,432,440,348\n1.45\n\n\nChicago, IL--IN\n51\n984,243,122\n1.38\n\n\nHouston, TX\n5\n203,079,979\n1.01"
   },
   {
     "objectID": "index.html#v.-advanced-analysis-the-ridership-deficit",
     "href": "index.html#v.-advanced-analysis-the-ridership-deficit",
     "title": "Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership",
     "section": "V. Advanced Analysis: The “Ridership Deficit”",
-    "text": "V. Advanced Analysis: The “Ridership Deficit”\nApplying the counterfactual model to fragmented “Secondary” areas reveals a significant suppression of ridership potential.\n\n5.1 Bias-Corrected Deficit Results\nBy training the model on centralized urban cores (Primary areas) and applying it to fragmented catchments, we quantify the Ridership Deficit. Even after controlling for the fact that suburban areas like Northern Kentucky (TANK) or Oakland County (SMART) have lower densities than their respective cores, they still significantly underperform their demographically predicted potential.\n\n\n\n\n\nRegion\nActual Riders\nPredicted Potential\nRidership Deficit\nPct. Market Loss\n\n\n\n\nPhoenix\n318\n1,513\n1,195\n79%\n\n\nDetroit\n4,900\n17,314\n12,414\n71.7%\n\n\nSeattle\n28,915\n79,182\n50,267\n63.5%\n\n\nSan Francisco\n165,603\n422,842\n257,239\n60.8%\n\n\nCincinnati\n1,938\n4,296\n2,358\n54.9%\n\n\nTampa\n5,565\n8,159\n2,594\n31.8%\n\n\nRiverside\n9,768\n11,996\n2,228\n18.6%\n\n\nDurham/Raleigh\n3,785\n3,533\n-252\n-7.1%\n\n\n\n\n\n\n\n5.2 Key Findings: The Fragmentation Tax\n\nPhoenix & Detroit: These regions show the most extreme “Fragmentation Tax,” with market losses exceeding 70%. This suggests that in the absence of a unified regional authority, the suburban service is effectively disconnected from the regional labor market.\nThe Cincinnati-NKY Disparity: Northern Kentucky (TANK) territory exhibits a 54.9% ridership deficit. This means that if NKY were integrated into a unified Cincinnati-Metro authority with equivalent service standards, ridership would more than double based on the demographics of its residents."
+    "text": "V. Advanced Analysis: The “Ridership Deficit”\n\n5.1 Bias-Corrected Deficit Results\n\n\n\n\n\nRegion\nActual Riders\nPredicted Potential\nRidership Deficit\nPct. Market Loss\n\n\n\n\nPhoenix\n318\n1,513\n1,195\n79%\n\n\nDetroit\n4,900\n17,314\n12,414\n71.7%\n\n\nSeattle\n28,915\n79,182\n50,267\n63.5%\n\n\nSan Francisco\n165,603\n422,842\n257,239\n60.8%\n\n\nCincinnati\n1,938\n4,296\n2,358\n54.9%\n\n\nTampa\n5,565\n8,159\n2,594\n31.8%\n\n\nRiverside\n9,768\n11,996\n2,228\n18.6%\n\n\nDurham/Raleigh\n3,785\n3,533\n-252\n-7.1%\n\n\n\n\n\n\n\n5.2 Key Findings: The Fragmentation Tax"
   },
   {
     "objectID": "index.html#vi.-discussion-and-policy-implications",
     "href": "index.html#vi.-discussion-and-policy-implications",
     "title": "Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership",
     "section": "VI. Discussion and Policy Implications",
-    "text": "VI. Discussion and Policy Implications\n\n6.1 The Cost of Sovereignty\nThe results suggest that “Institutional Sovereignty” for suburban agencies comes at a steep price. Fragmentation is not merely a logistical hurdle but a structural barrier that suppresses transit mode share by more than half in many American metros.\n\n\n6.2 Recommendations for Consolidation\n\nUnified Network Management: States should mandate regional fare and schedule integration to eliminate the visible “friction” of multiple agencies.\nService Level Standardization: Regional funding should be tied to ensuring that “Secondary” catchments receive service frequency comparable to demographically similar “Primary” tracts."
+    "text": "VI. Discussion and Policy Implications\n\n6.1 The Cost of Sovereignty\n\n\n6.2 Recommendations for Consolidation"
   },
   {
     "objectID": "index.html#vii.-conclusion",
     "href": "index.html#vii.-conclusion",
     "title": "Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership",
     "section": "VII. Conclusion",
-    "text": "VII. Conclusion\nInstitutional fragmentation is a primary driver of transit underperformance in the United States. The Transit Fragmentation Index and the Ridership Deficit Model together provide a framework for measuring the cost of political localism. Even after controlling for density and income, the “Fragmentation Tax” remains a dominant factor in urban mobility outcomes."
+    "text": "VII. Conclusion"
   },
   {
     "objectID": "index.html#viii.-references",
     "href": "index.html#viii.-references",
     "title": "Governance Friction: Quantifying the Impact of Institutional Fragmentation on Transit Ridership",
     "section": "VIII. References",
-    "text": "VIII. References\n\nFederal Transit Administration (2024). 2023 National Transit Database.\nU.S. Census Bureau (2022). American Community Survey 5-Year Estimates.\nCoase, R. H. (1937). The Nature of the Firm. Economica.\nVuchic, V. R. (2005). Urban Transit: Operations, Planning, and Economics."
+    "text": "VIII. References\n\nFederal Transit Administration (2024). 2023 National Transit Database.\nU.S. Census Bureau (2022). American Community Survey 5-Year Estimates.\nCoase, R. H. (1937). The Nature of the Firm. Economica.\nVuchic, V. R. (2005). Urban Transit: Operations, Planning, and Economics.\n\n\nView source on GitHub"
   },
   {
     "objectID": "DEFICIT_MAP.html",
@@ -144,7 +144,7 @@
     "href": "DEFICIT_MAP.html#how-to-read-this-map",
     "title": "National Ridership Deficit Map: The Cost of Fragmentation",
     "section": "How to Read This Map",
-    "text": "How to Read This Map\n\nBlue Circles (Semi-transparent): Represent the Potential Ridership predicted by our model if the area had “Primary Agency” service levels and unified governance.\nRed Circles (Solid): Represent the Actual Ridership recorded in the 2022 Census.\nThe Gap: The larger the blue circle is compared to the red circle, the higher the Ridership Deficit.\n\n\nNational Results\n\n\nCode\ndf_summary %&gt;%\n  arrange(desc(Pct_Market_Loss)) %&gt;%\n  mutate(\n    Actual_Riders = format(round(Actual_Riders), big.mark = \",\"),\n    Predicted_Potential = format(round(Predicted_Potential), big.mark = \",\"),\n    Ridership_Deficit = format(round(Ridership_Deficit), big.mark = \",\"),\n    Pct_Market_Loss = paste0(round(Pct_Market_Loss * 100, 1), \"%\")\n  ) %&gt;%\n  knitr::kable()\n\n\n\n\n\n\n\n\n\n\n\n\n\nRegion\nActual_Riders\nPredicted_Potential\nRidership_Deficit\nPct_Market_Loss\nTract_Count\n\n\n\n\nPhoenix\n318\n1,513\n1,195\n79%\n93\n\n\nDetroit\n4,900\n17,314\n12,414\n71.7%\n578\n\n\nSeattle\n28,915\n79,182\n50,267\n63.5%\n365\n\n\nSan Francisco\n165,603\n422,842\n257,239\n60.8%\n846\n\n\nCincinnati\n1,938\n4,296\n2,358\n54.9%\n97\n\n\nTampa\n5,565\n8,159\n2,594\n31.8%\n273\n\n\nRiverside\n9,768\n11,996\n2,228\n18.6%\n459\n\n\nDurham/Raleigh\n3,785\n3,533\n-252\n-7.1%\n65\n\n\n\n\n\n\n\n\nKey Takeaway:\nFragmentation is not just a coordination nuisance; it is a stranglehold on ridership. In Phoenix, Detroit, and San Francisco, the deficit exceeds 60%, meaning these regions are serving less than a third of their demographically supported transit potential in fragmented catchment areas."
+    "text": "How to Read This Map\n\nNational Results\n\n\nCode\ndf_summary %&gt;%\n  arrange(desc(Pct_Market_Loss)) %&gt;%\n  mutate(\n    Actual_Riders = format(round(Actual_Riders), big.mark = \",\"),\n    Predicted_Potential = format(round(Predicted_Potential), big.mark = \",\"),\n    Ridership_Deficit = format(round(Ridership_Deficit), big.mark = \",\"),\n    Pct_Market_Loss = paste0(round(Pct_Market_Loss * 100, 1), \"%\")\n  ) %&gt;%\n  knitr::kable()\n\n\n\n\n\n\n\n\n\n\n\n\n\nRegion\nActual_Riders\nPredicted_Potential\nRidership_Deficit\nPct_Market_Loss\nTract_Count\n\n\n\n\nPhoenix\n318\n1,513\n1,195\n79%\n93\n\n\nDetroit\n4,900\n17,314\n12,414\n71.7%\n578\n\n\nSeattle\n28,915\n79,182\n50,267\n63.5%\n365\n\n\nSan Francisco\n165,603\n422,842\n257,239\n60.8%\n846\n\n\nCincinnati\n1,938\n4,296\n2,358\n54.9%\n97\n\n\nTampa\n5,565\n8,159\n2,594\n31.8%\n273\n\n\nRiverside\n9,768\n11,996\n2,228\n18.6%\n459\n\n\nDurham/Raleigh\n3,785\n3,533\n-252\n-7.1%\n65\n\n\n\n\n\n\n\n\nKey Takeaway:"
   },
   {
     "objectID": "TRANSIT_MAP.html",
@@ -158,7 +158,7 @@
     "href": "TRANSIT_MAP.html#summary-of-national-fragmentation-top-50",
     "title": "Mapping Transit Fragmentation Across the US",
     "section": "Summary of National Fragmentation (Top 50)",
-    "text": "Summary of National Fragmentation (Top 50)\nThis interactive map focuses on the Top 50 U.S. Urbanized Areas by ridership. By limiting the scope, we can more clearly see the relationship between size and governance friction in major metropolitan areas.\n\nMarker Size is scaled to the logarithm of ridership, with New York City as the maximum reference point.\nMarker Color represents the Transit Fragmentation Index (TFI).\nObservations: Regions with multiple competing heavy-rail or regional rail systems (like the Bay Area) often show higher fragmentation scores than single-provider systems.\n\n\nTop 10 Cities in this Dataset\n\n\nCode\nmap_df_top50 %&gt;%\n  arrange(desc(Total_UPT)) %&gt;%\n  head(10) %&gt;%\n  select(`Urbanized Area Name`, Agency_Count, Fragmentation_Index, Total_UPT) %&gt;%\n  mutate(Total_UPT = format(Total_UPT, big.mark = \",\"),\n         Fragmentation_Index = round(Fragmentation_Index, 2)) %&gt;%\n  knitr::kable()\n\n\n\n\n\n\n\n\n\n\n\nUrbanized Area Name\nAgency_Count\nFragmentation_Index\nTotal_UPT\n\n\n\n\nNew York–Jersey City–Newark, NY–NJ\n53\n1.45\n9,432,440,348\n\n\nLos Angeles–Long Beach–Anaheim, CA\n81\n1.89\n1,159,392,637\n\n\nChicago, IL–IN\n51\n1.38\n984,243,122\n\n\nWashington–Arlington, DC–VA–MD\n16\n1.41\n775,905,807\n\n\nBoston, MA–NH\n19\n1.06\n710,820,915\n\n\nSan Francisco–Oakland, CA\n19\n2.45\n671,089,269\n\n\nPhiladelphia, PA–NJ–DE–MD\n14\n1.31\n657,464,622\n\n\nSeattle–Tacoma, WA\n15\n4.05\n437,425,512\n\n\nMiami–Fort Lauderdale, FL\n22\n1.98\n329,947,142\n\n\nSan Diego, CA\n7\n1.23\n223,901,779"
+    "text": "Summary of National Fragmentation (Top 50)\n\nTop 10 Cities in this Dataset\n\n\nCode\nmap_df_top50 %&gt;%\n  arrange(desc(Total_UPT)) %&gt;%\n  head(10) %&gt;%\n  select(`Urbanized Area Name`, Agency_Count, Fragmentation_Index, Total_UPT) %&gt;%\n  mutate(Total_UPT = format(Total_UPT, big.mark = \",\"),\n         Fragmentation_Index = round(Fragmentation_Index, 2)) %&gt;%\n  knitr::kable()\n\n\n\n\n\n\n\n\n\n\n\nUrbanized Area Name\nAgency_Count\nFragmentation_Index\nTotal_UPT\n\n\n\n\nNew York–Jersey City–Newark, NY–NJ\n53\n1.45\n9,432,440,348\n\n\nLos Angeles–Long Beach–Anaheim, CA\n81\n1.89\n1,159,392,637\n\n\nChicago, IL–IN\n51\n1.38\n984,243,122\n\n\nWashington–Arlington, DC–VA–MD\n16\n1.41\n775,905,807\n\n\nBoston, MA–NH\n19\n1.06\n710,820,915\n\n\nSan Francisco–Oakland, CA\n19\n2.45\n671,089,269\n\n\nPhiladelphia, PA–NJ–DE–MD\n14\n1.31\n657,464,622\n\n\nSeattle–Tacoma, WA\n15\n4.05\n437,425,512\n\n\nMiami–Fort Lauderdale, FL\n22\n1.98\n329,947,142\n\n\nSan Diego, CA\n7\n1.23\n223,901,779"
   },
   {
     "objectID": "ECONOMIC_RESEARCH_PROPOSALS.html",

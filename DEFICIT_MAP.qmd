@@ -69,10 +69,6 @@ leaflet(map_data) %>%
 
 ## How to Read This Map
 
-*   **Blue Circles (Semi-transparent):** Represent the **Potential Ridership** predicted by our model if the area had "Primary Agency" service levels and unified governance.
-*   **Red Circles (Solid):** Represent the **Actual Ridership** recorded in the 2022 Census.
-*   **The Gap:** The larger the blue circle is compared to the red circle, the higher the **Ridership Deficit**.
-
 ### National Results
 
 ```{r}
@@ -92,4 +88,3 @@ df_summary %>%
 ---
 
 ### **Key Takeaway:**
-Fragmentation is not just a coordination nuisance; it is a **stranglehold on ridership.** In Phoenix, Detroit, and San Francisco, the deficit exceeds 60%, meaning these regions are serving **less than a third** of their demographically supported transit potential in fragmented catchment areas.
